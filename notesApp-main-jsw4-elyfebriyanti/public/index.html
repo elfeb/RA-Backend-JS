@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+
+<head>
+    <link rel="stylesheet" href="index.css">
+    <script src="index.js"></script>
+    <script src="notesScript.js"></script>
+    <title>Note Taker App</title>
+</head>
+<body>
+    <div class="front-page">
+        <h2 class="header">Note Taker App</h2>
+            <textarea id="note" name="note-text" class="note-area"></textarea>
+            <br>
+            <button id="submit" onclick="saveNote()" class="submit">Save Note</button>
+        <div class="notes-link">
+            <a href="index2.html" onclick="getNotes()" >View Notes</a>
+        </div> 
+    </div>
+</body>
+
+<script>
+var textElement = document.getElementById("note")
+
+function saveNote() {
+    // check if the value of #note/textElement is empty
+    if ( textElement.value === "" ) {
+        return alert("the text area is empty");
+    }
+
+    // set the note ID
+    const id = getNoteID();
+    // get the existing notes values and assign it to variable noteObject
+    let noteObject = getExistingNotes();
+
+    // if there's no existing note with that value, noteObject is equals to an empty object
+    if (!noteObject) {
+        noteObject = {};
+    }
+
+    //  assign the entered value to a JS Engine note memory with certain ID
+    noteObject[id] = textElement.value;
+    // set item to the localStorage.setItem property,value--JSON object
+    localStorage.setItem('notes', JSON.stringify(noteObject));
+    // show alert that a note has been saved
+    alert('Note has been saved!');
+
+}
+</script>

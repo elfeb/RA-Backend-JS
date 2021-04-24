@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+
+<head>
+    <link rel="stylesheet" href="index.css">
+    <script src="index.js"></script>
+    <script src="notesScript.js"></script>
+</head>
+
+<div class="second-page">
+    <ol id="notes-list">
+
+    </ol>
+</div>
+
+<a href="index.html" id="backButton"><h3>Back</h3></a>
+
+
+<script>
+
+// create a function to get all notes
+// self invoking function
+(function getNotes() {
+    // assign getExistingNotes function's return value to var notes
+    let notes = getExistingNotes();
+    // get notes' property values and assign it to var notesArray
+    let notesArray = Object.values(notes);
+    // get the list of lis from notes-list ol
+    let orderedList = document.getElementById('notes-list');
+    
+    //  loop through notesArray, assign each li to var ListItem, get the inner HTML text of that li, and then append it as a child of the ol
+    notesArray.forEach(note => {
+        let listItem = document.createElement('li');
+        listItem.innerHTML = note;
+        orderedList.appendChild(listItem);
+    });
+
+})()
+
+</script>

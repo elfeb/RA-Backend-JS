@@ -1,0 +1,26 @@
+{
+  "name": "notesapp",
+  "version": "1.0.0",
+  "description": "A simple notes app",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "dev": "nodemon index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/elfeb/RA-Backend-JS.git"
+  },
+  "author": "Ely Febriyanti",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/elfeb/RA-Backend-JS/issues"
+  },
+  "homepage": "https://github.com/elfeb/RA-Backend-JS#readme",
+  "dependencies": {
+    "uuid": "^8.3.2"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.7"
+  }
+}
